@@ -1299,59 +1299,64 @@
       }
 
       // Replace with your real token and chat id
-      const BOT_TOKEN = "7546114753:AAF6GaVnlza8TMTOV5pLMmcWh-H73EyB7yA";
-      const CHAT_ID = "385931502";
+      // Replace with your real token and chat id
+const BOT_TOKEN = "7546114753:AAF6GaVnlza8TMTOV5pLMmcWh-H73EyB7yA";
 
-      const textLines = [
-        "Новая заявка с лендинга (фотосессия в Дубае):",
-        "",
-        "Имя: " + name,
-        "Телефон: " + phone,
-        "Соцсеть: " + (social || "-"),
-        "Даты в Дубае: " + (dates || "-"),
-        "Комментарий: " + (message || "-")
-      ];
+// Первый чат (основной)
+const CHAT_ID_1 = "385931502";
 
-      const text = textLines.join("\n");
-      const url =
-        "https://api.telegram.org/bot" +
-        encodeURIComponent(BOT_TOKEN) +
-        "/sendMessage?chat_id=" +
-        encodeURIComponent(CHAT_ID) +
-        "&text=" +
-        encodeURIComponent(text);
+// Второй чат
+const CHAT_ID_2 = "7494284915";
 
-      formStatus.textContent = "Отправка...";
-      formStatus.classList.remove("error", "success");
+const textLines = [
+  "Новая заявка с лендинга (фотосессия в Дубае):",
+  "",
+  "Имя: " + name,
+  "Телефон: " + phone,
+  "Соцсеть: " + (social || "-"),
+  "Даты в Дубае: " + (dates || "-"),
+  "Комментарий: " + (message || "-")
+];
 
-      fetch(url, {
-        method: "GET"
-      })
-        .then(function (response) {
-          if (!response.ok) {
-            throw new Error("Ошибка сети");
-          }
-          return response.json();
-        })
-        .then(function (data) {
-          if (!data || !data.ok) {
-            throw new Error("Ошибка Telegram API");
-          }
+const text = textLines.join("\n");
 
-          alert("Заявка отправлена");
-          formStatus.textContent = "Заявка успешно отправлена.";
-          formStatus.classList.add("success");
-          leadForm.reset();
+const url1 =
+  "https://api.telegram.org/bot" +
+  encodeURIComponent(BOT_TOKEN) +
+  "/sendMessage?chat_id=" +
+  encodeURIComponent(CHAT_ID_1) +
+  "&text=" +
+  encodeURIComponent(text);
 
-          // GTM event
-          window.dataLayer = window.dataLayer || [];
-          window.dataLayer.push({ event: "form_submit" });
-        })
-        .catch(function () {
-          alert("Ошибка при отправке заявки. Попробуйте еще раз.");
-          formStatus.textContent = "Не удалось отправить заявку. Попробуйте еще раз.";
-          formStatus.classList.add("error");
-        });
+const url2 =
+  "https://api.telegram.org/bot" +
+  encodeURIComponent(BOT_TOKEN) +
+  "/sendMessage?chat_id=" +
+  encodeURIComponent(CHAT_ID_2) +
+  "&text=" +
+  encodeURIComponent(text);
+
+formStatus.textContent = "Отправка...";
+formStatus.classList.remove("error", "success");
+
+// отправка в первый чат
+fetch(url1)
+  .then(() => fetch(url2)) // отправка во второй чат
+  .then(() => {
+    alert("Заявка отправлена");
+    formStatus.textContent = "Заявка успешно отправлена.";
+    formStatus.classList.add("success");
+    leadForm.reset();
+
+    // GTM event
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: "form_submit" });
+  })
+  .catch(() => {
+    alert("Ошибка при отправке заявки. Попробуйте еще раз.");
+    formStatus.textContent = "Не удалось отправить заявку. Попробуйте еще раз.";
+    formStatus.classList.add("error");
+  });
     });
   }
 </script>
