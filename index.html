@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Премиальные фотосессии в Дубае</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-color: #ffffff;
+      --accent-color: #d4af37;
+      --accent-soft: rgba(212, 175, 55, 0.1);
+      --text-color: #111827;
+      --muted-text: #6b7280;
+      --border-color: #e5e7eb;
+      --card-bg: #ffffff;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.12);
+      --radius-xl: 24px;
+      --transition-fast: 0.25s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background:
+        radial-gradient(circle at top left, rgba(212, 175, 55, 0.06), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(15, 23, 42, 0.08), transparent 55%);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(16px);
+      background: rgba(255, 255, 255, 0.85);
+      border-bottom: 1px solid rgba(229, 231, 235, 0.8);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      gap: 16px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #fef3c7, #fde68a);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 18px;
+      color: #92400e;
+      box-shadow: 0 8px 28px rgba(212, 138, 15, 0.35);
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-title {
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .logo-subtitle {
+      font-size: 12px;
+      color: var(--muted-text);
+    }
+
+    .header-cta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header-phone {
+      font-size: 13px;
+      color: var(--muted-text);
+      display: none;
+    }
+
+    .btn-primary {
+      border: none;
+      cursor: pointer;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: #111827;
+      color: #f9fafb;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.45);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+    }
+
+    .btn-primary span.dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #fbbf24;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px) translateZ(0);
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.65);
+      background: #000000;
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.5);
+    }
+
+    main {
+      flex: 1 0 auto;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 48px 0 64px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 32px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted-text);
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(249, 250, 251, 0.9);
+      border: 1px solid rgba(243, 244, 246, 0.9);
+      margin-bottom: 14px;
+    }
+
+    .eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #facc15, #f97316);
+      box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.18);
+    }
+
+    .hero-title {
+      font-size: clamp(32px, 4vw, 42px);
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+      margin-bottom: 14px;
+    }
+
+    .hero-title span.highlight {
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero-title span.highlight::before {
+      content: "";
+      position: absolute;
+      inset: auto 0 -4px 0;
+      height: 10px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(250, 204, 21, 0.2), rgba(251, 191, 36, 0.45));
+      z-index: -1;
+    }
+
+    .hero-subtitle {
+      font-size: 15px;
+      color: var(--muted-text);
+      max-width: 440px;
+      margin-bottom: 22px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-bottom: 26px;
+      font-size: 13px;
+      color: var(--muted-text);
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-meta span::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent-color);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+      margin-bottom: 22px;
+    }
+
+    .btn-secondary {
+      border-radius: 999px;
+      border: 1px solid rgba(156, 163, 175, 0.4);
+      background: rgba(255, 255, 255, 0.9);
+      padding: 9px 16px;
+      font-size: 13px;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: border var(--transition-fast), background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(55, 65, 81, 0.5);
+      background: #ffffff;
+      transform: translateY(-1px);
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12);
+    }
+
+    .hero-note {
+      font-size: 12px;
+      color: var(--muted-text);
+    }
+
+    .hero-media {
+      position: relative;
+      border-radius: 32px;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      background: #020617;
+      isolation: isolate;
+    }
+
+    .hero-photo {
+      position: relative;
+      min-height: 300px;
+      background-image: url("https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=80");
+      background-size: cover;
+      background-position: center center;
+      transform: scale(1.03);
+      transition: transform 8s ease-out;
+    }
+
+    .hero-media:hover .hero-photo {
+      transform: scale(1.06);
+    }
+
+    .hero-tag {
+      position: absolute;
+      inset: auto 18px 18px auto;
+      background: rgba(15, 23, 42, 0.85);
+      border-radius: 999px;
+      padding: 7px 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #f9fafb;
+      font-size: 11px;
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+    }
+
+    .hero-tag-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.3);
+    }
+
+    /* Section base */
+    section {
+      padding: 40px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .section-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted-text);
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: 24px;
+      letter-spacing: -0.03em;
+      margin-bottom: 6px;
+    }
+
+    .section-desc {
+      font-size: 14px;
+      color: var(--muted-text);
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* Benefits */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .benefit-card {
+      border-radius: var(--radius-xl);
+      padding: 18px 16px 16px;
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid rgba(229, 231, 235, 0.9);
+      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.06);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.14);
+      border-color: rgba(212, 175, 55, 0.6);
+      background: #ffffff;
+    }
+
+    .benefit-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .benefit-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .benefit-text {
+      font-size: 13px;
+      color: var(--muted-text);
+    }
+
+    /* Packages */
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .package-card {
+      border-radius: 28px;
+      padding: 20px 18px 18px;
+      background: rgba(255, 255, 255, 0.97);
+      border: 1px solid rgba(229, 231, 235, 0.9);
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      position: relative;
+      overflow: hidden;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+    }
+
+    .package-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at top, rgba(212, 175, 55, 0.12), transparent 60%);
+      opacity: 0;
+      transition: opacity var(--transition-fast);
+      pointer-events: none;
+    }
+
+    .package-card:hover::before {
+      opacity: 1;
+    }
+
+    .package-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 22px 55px rgba(15, 23, 42, 0.18);
+      border-color: rgba(212, 175, 55, 0.7);
+    }
+
+    .package-badge {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted-text);
+    }
+
+    .package-name {
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+    }
+
+    .package-price {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .package-price span {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--muted-text);
+    }
+
+    .package-meta {
+      font-size: 12px;
+      color: var(--muted-text);
+    }
+
+    .package-list {
+      list-style: none;
+      margin: 6px 0 8px;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .package-list li {
+      font-size: 13px;
+      color: var(--muted-text);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .package-list li::before {
+      content: "•";
+      color: var(--accent-color);
+      margin-top: 1px;
+    }
+
+    .package-footer {
+      margin-top: 8px;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-outline {
+      border-radius: 999px;
+      border: 1px solid rgba(17, 24, 39, 0.8);
+      padding: 9px 16px;
+      font-size: 13px;
+      font-weight: 500;
+      background: #111827;
+      color: #f9fafb;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.45);
+    }
+
+    .btn-outline:hover {
+      background: #000000;
+      border-color: #000000;
+      transform: translateY(-1px);
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.7);
+    }
+
+    .package-note {
+      font-size: 11px;
+      color: var(--muted-text);
+    }
+
+    /* Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .gallery-item {
+      border-radius: 18px;
+      overflow: hidden;
+      position: relative;
+      background: #020617;
+      aspect-ratio: 3 / 4;
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.32);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), filter var(--transition-fast);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.03);
+      transition: transform 2.4s ease-out;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-3px) scale(1.01);
+      box-shadow: 0 16px 42px rgba(15, 23, 42, 0.5);
+      filter: saturate(1.08);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.08);
+    }
+
+    /* Form section */
+    .form-section {
+      padding: 48px 0 56px;
+    }
+
+    .form-wrapper {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .form-card {
+      border-radius: 32px;
+      padding: 22px 20px 20px;
+      background: #ffffff;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(229, 231, 235, 0.9);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .form-card::before {
+      content: "";
+      position: absolute;
+      inset: -30%;
+      background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.18), transparent 60%);
+      opacity: 0.75;
+      pointer-events: none;
+    }
+
+    .form-card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .form-header {
+      margin-bottom: 16px;
+    }
+
+    .form-header-title {
+      font-size: 20px;
+      letter-spacing: -0.03em;
+      margin-bottom: 4px;
+    }
+
+    .form-header-desc {
+      font-size: 13px;
+      color: var(--muted-text);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group.wide {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-size: 12px;
+      font-weight: 500;
+      color: #4b5563;
+    }
+
+    .input,
+    textarea {
+      width: 100%;
+      padding: 10px 11px;
+      border-radius: 999px;
+      border: 1px solid rgba(209, 213, 219, 0.95);
+      background: rgba(249, 250, 251, 0.9);
+      font-size: 13px;
+      outline: none;
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast), transform var(--transition-fast);
+    }
+
+    textarea {
+      border-radius: 18px;
+      min-height: 80px;
+      resize: vertical;
+      line-height: 1.5;
+    }
+
+    .input::placeholder,
+    textarea::placeholder {
+      color: rgba(156, 163, 175, 0.9);
+    }
+
+    .input:focus,
+    textarea:focus {
+      border-color: rgba(212, 175, 55, 0.85);
+      background: #ffffff;
+      box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.55), 0 18px 45px rgba(15, 23, 42, 0.22);
+      transform: translateY(-1px);
+    }
+
+    .form-footer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 8px;
+    }
+
+    .form-note {
+      font-size: 11px;
+      color: var(--muted-text);
+      max-width: 230px;
+    }
+
+    .form-status {
+      margin-top: 8px;
+      font-size: 12px;
+      min-height: 18px;
+    }
+
+    .form-status.success {
+      color: #16a34a;
+    }
+
+    .form-status.error {
+      color: #dc2626;
+    }
+
+    .aside-card {
+      border-radius: 26px;
+      padding: 18px 18px 16px;
+      background: #020617;
+      color: #e5e7eb;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.9);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .aside-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at top right, rgba(248, 250, 252, 0.14), transparent 60%),
+        radial-gradient(circle at bottom left, rgba(37, 99, 235, 0.25), transparent 65%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .aside-card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .aside-label {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(156, 163, 175, 0.95);
+      margin-bottom: 2px;
+    }
+
+    .aside-title {
+      font-size: 17px;
+      letter-spacing: -0.03em;
+      margin-bottom: 4px;
+    }
+
+    .aside-text {
+      font-size: 13px;
+      color: rgba(209, 213, 219, 0.95);
+      margin-bottom: 10px;
+    }
+
+    .aside-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .aside-badge {
+      font-size: 11px;
+      border-radius: 999px;
+      padding: 5px 9px;
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(12px);
+    }
+
+    .aside-meta {
+      font-size: 11px;
+      color: rgba(156, 163, 175, 0.96);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid rgba(229, 231, 235, 0.9);
+      background: rgba(255, 255, 255, 0.95);
+    }
+
+    .footer-inner {
+      padding: 16px 0 18px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 12px;
+      color: var(--muted-text);
+    }
+
+    .footer-socials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .social-pill {
+      border-radius: 999px;
+      padding: 6px 10px;
+      border: 1px solid rgba(209, 213, 219, 0.95);
+      background: rgba(248, 250, 252, 0.9);
+      font-size: 11px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: border-color var(--transition-fast), background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    .social-pill span.icon {
+      width: 16px;
+      height: 16px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      background: rgba(17, 24, 39, 0.92);
+      color: #f9fafb;
+    }
+
+    .social-pill:hover {
+      border-color: rgba(148, 163, 184, 0.9);
+      background: #ffffff;
+      transform: translateY(-1px);
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.14);
+    }
+
+    /* Responsive */
+    @media (max-width: 960px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero-media {
+        order: -1;
+      }
+      .benefits-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .packages-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .gallery-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      .form-wrapper {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .header-phone {
+        display: none;
+      }
+      .hero {
+        padding-top: 32px;
+      }
+      .hero-media {
+        border-radius: 24px;
+      }
+      .benefits-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .packages-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .form-card,
+      .aside-card {
+        border-radius: 22px;
+      }
+      .form-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .form-footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .header-inner {
+        padding: 10px 0;
+      }
+    }
+
+    @media (min-width: 861px) {
+      .header-phone {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div class="container">
+      <div class="header-inner">
+        <div class="logo">
+          <div class="logo-mark">D</div>
+          <div class="logo-text">
+            <div class="logo-title">Dubai Photos</div>
+            <div class="logo-subtitle">Luxury photo experience</div>
+          </div>
+        </div>
+        <div class="header-cta">
+          <div class="header-phone">WhatsApp / Telegram: +XXX XXX XX XX</div>
+          <button class="btn-primary" type="button" id="header-cta-btn">
+            <span class="dot"></span>
+            Оставить заявку
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow">
+              <span class="eyebrow-dot"></span>
+              Фотосессии в Дубае
+            </div>
+            <h1 class="hero-title">
+              Премиальные фотосессии<br />
+              <span class="highlight">в Дубае</span>
+            </h1>
+            <p class="hero-subtitle">
+              Бронируйте дату заранее и получите авторскую съемку с комфортным трансфером, продуманными локациями и легкой атмосферой.
+            </p>
+            <div class="hero-meta">
+              <span>Лицензия и официальная деятельность</span>
+              <span>Индивидуальный подбор локаций</span>
+              <span>Готовые фото в течение 5–7 дней</span>
+            </div>
+            <div class="hero-actions">
+              <button class="btn-primary" type="button" id="hero-cta-btn">
+                <span class="dot"></span>
+                Оставить заявку
+              </button>
+              <button class="btn-secondary" type="button" id="hero-packages-btn">
+                Смотреть пакеты
+              </button>
+            </div>
+            <div class="hero-note">
+              Расскажите, в какие даты вы будете в Дубае — предложу лучшие варианты времени и локаций под ваш стиль.
+            </div>
+          </div>
+          <div class="hero-media">
+            <div class="hero-photo"></div>
+            <div class="hero-tag">
+              <div class="hero-tag-dot"></div>
+              Бронирование дат на ближайшие месяцы открыто
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFITS -->
+    <section id="benefits">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">Преимущества</div>
+          <h2 class="section-title">Комфортная съемка от прилета до готовых фото</h2>
+          <p class="section-desc">
+            Продуманный маршрут, помощь с образами и полное сопровождение. Ваша задача — просто наслаждаться городом и процессом.
+          </p>
+        </div>
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <div class="benefit-icon">🚙</div>
+            <div class="benefit-title">Комфортный трансфер</div>
+            <div class="benefit-text">
+              Встреча у отеля и доставка до локаций на комфортном авто. Вода в машине и продуманные маршруты по времени.
+            </div>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon">📍</div>
+            <div class="benefit-title">Лучшие локации</div>
+            <div class="benefit-text">
+              Маршруты у моря, в городе, в пустыне или на крыше. Подбираю места под ваш стиль, одежду и время суток.
+            </div>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon">🎨</div>
+            <div class="benefit-title">Авторская обработка</div>
+            <div class="benefit-text">
+              Фирменная цветокоррекция, выравнивание кожи, аккуратная ретушь. Без “пластика” и перегруза фильтрами.
+            </div>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon">📄</div>
+            <div class="benefit-title">Лицензия и договоренность</div>
+            <div class="benefit-text">
+              Работаю официально. Четкие условия по срокам, количеству фото и времени съемки.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PACKAGES -->
+    <section id="packages">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">Пакеты фотосессий</div>
+          <h2 class="section-title">Выберите формат под ваши планы</h2>
+          <p class="section-desc">
+            Можно адаптировать любой пакет под ваши задачи: lovestory, индивидуальная съемка, контент для блога или семейные фото.
+          </p>
+        </div>
+        <div class="packages-grid">
+          <article class="package-card">
+            <div class="package-badge">Для знакомства с городом</div>
+            <div class="package-name">Standard</div>
+            <div class="package-price">250&nbsp;$ <span>/ 1 локация</span></div>
+            <div class="package-meta">Подойдет, если хотите компактную съемку в одном месте</div>
+            <ul class="package-list">
+              <li>Продолжительность съемки ~1 час</li>
+              <li>1 основная локация (море / город / отель)</li>
+              <li>30–40 готовых фотографий в авторской обработке</li>
+              <li>Рекомендации по образам до съемки</li>
+            </ul>
+            <div class="package-footer">
+              <button class="btn-outline package-btn" type="button">
+                Забронировать дату
+              </button>
+              <div class="package-note">Идеально, если вы первый раз в Дубае</div>
+            </div>
+          </article>
+
+          <article class="package-card">
+            <div class="package-badge">Оптимальный выбор</div>
+            <div class="package-name">Premium</div>
+            <div class="package-price">350&nbsp;$ <span>/ 2&nbsp;локации</span></div>
+            <div class="package-meta">Сочетание нескольких настроений за одну съемку</div>
+            <ul class="package-list">
+              <li>Продолжительность съемки ~2 часа</li>
+              <li>2 локации (например, город + море)</li>
+              <li>60–80 готовых фотографий</li>
+              <li>Помощь с маршрутом и таймингом по свету</li>
+            </ul>
+            <div class="package-footer">
+              <button class="btn-outline package-btn" type="button">
+                Забронировать дату
+              </button>
+              <div class="package-note">Баланс по времени, локациям и цене</div>
+            </div>
+          </article>
+
+          <article class="package-card">
+            <div class="package-badge">Максимум возможностей</div>
+            <div class="package-name">Luxury</div>
+            <div class="package-price">500&nbsp;$ <span>/ расширенный формат</span></div>
+            <div class="package-meta">Для тех, кто хочет максимум контента и впечатлений</div>
+            <ul class="package-list">
+              <li>3+ локации (город, море, пустыня / крыша)</li>
+              <li>Персональный маршрут под ваш день</li>
+              <li>100+ фотографий в цвете и ч/б</li>
+              <li>Приоритетные сроки готовности материала</li>
+            </ul>
+            <div class="package-footer">
+              <button class="btn-outline package-btn" type="button">
+                Забронировать дату
+              </button>
+              <div class="package-note">Подойдет под поездку “раз в жизни”</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">Галерея</div>
+          <h2 class="section-title">Несколько настроений Дубая в одном кадре</h2>
+          <p class="section-desc">
+            Здесь только примерные локации и свет. После бронирования мы подберем идеи именно под вас.
+          </p>
+        </div>
+        <div class="gallery-grid">
+          <a class="gallery-item" href="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=80" target="_blank" rel="noreferrer">
+            <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80" alt="Dubai skyline" />
+          </a>
+          <a class="gallery-item" href="https://images.unsplash.com/photo-1504274066651-8d31a536b11a?auto=format&fit=crop&w=1200&q=80" target="_blank" rel="noreferrer">
+            <img src="https://images.unsplash.com/photo-1504274066651-8d31a536b11a?auto=format&fit=crop&w=800&q=80" alt="Dubai beach" />
+          </a>
+          <a class="gallery-item" href="https://images.unsplash.com/photo-1526481280695-3c687fd543c0?auto=format&fit=crop&w=1200&q=80" target="_blank" rel="noreferrer">
+            <img src="https://images.unsplash.com/photo-1526481280695-3c687fd543c0?auto=format&fit=crop&w=800&q=80" alt="City lights" />
+          </a>
+          <a class="gallery-item" href="https://images.unsplash.com/photo-1526481280693-3b113f06ca4f?auto=format&fit=crop&w=1200&q=80" target="_blank" rel="noreferrer">
+            <img src="https://images.unsplash.com/photo-1526481280693-3b113f06ca4f?auto=format&fit=crop&w=800&q=80" alt="Dubai Marina" />
+          </a>
+          <a class="gallery-item" href="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1200&q=80" target="_blank" rel="noreferrer">
+            <img src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=800&q=80" alt="Desert" />
+          </a>
+          <a class="gallery-item" href="https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=1200&q=80" target="_blank" rel="noreferrer">
+            <img src="https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=800&q=80" alt="Palm Jumeirah" />
+          </a>
+          <a class="gallery-item" href="https://images.unsplash.com/photo-1519120126473-8be9f56092c9?auto=format&fit=crop&w=1200&q=80" target="_blank" rel="noreferrer">
+            <img src="https://images.unsplash.com/photo-1519120126473-8be9f56092c9?auto=format&fit=crop&w=800&q=80" alt="Sunset" />
+          </a>
+          <a class="gallery-item" href="https://images.unsplash.com/photo-1480497490787-505ec076689f?auto=format&fit=crop&w=1200&q=80" target="_blank" rel="noreferrer">
+            <img src="https://images.unsplash.com/photo-1480497490787-505ec076689f?auto=format&fit=crop&w=800&q=80" alt="Architecture" />
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORM -->
+    <section class="form-section" id="lead-form-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">Заявка на фотосессию</div>
+          <h2 class="section-title">Расскажите, когда вы будете в Дубае</h2>
+          <p class="section-desc">
+            Оставьте контакты — я свяжусь с вами в мессенджере, уточню даты, пожелания по локациям и предложу оптимальный пакет.
+          </p>
+        </div>
+        <div class="form-wrapper">
+          <div class="form-card">
+            <div class="form-card-inner">
+              <div class="form-header">
+                <div class="form-header-title">Оставить заявку на фотосессию</div>
+                <div class="form-header-desc">
+                  Ответ обычно в течение дня. Укажите удобный способ связи и примерные даты.
+                </div>
+              </div>
+              <form id="lead-form" autocomplete="on">
+                <div class="form-grid">
+                  <div class="form-group">
+                    <label for="name">Имя</label>
+                    <input class="input" type="text" id="name" name="name" placeholder="Например, Sofia" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="phone">Телефон (WhatsApp / Telegram)</label>
+                    <input class="input" type="tel" id="phone" name="phone" placeholder="+XXX XXX XX XX" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="social">Instagram или другая соцсеть</label>
+                    <input class="input" type="text" id="social" name="social" placeholder="@ваш_ник или ссылка" />
+                  </div>
+                  <div class="form-group">
+                    <label for="dates">Даты пребывания в Дубае</label>
+                    <input class="input" type="text" id="dates" name="dates" placeholder="Например: 3–10 января, удобнее утро" />
+                  </div>
+                  <div class="form-group wide">
+                    <label for="message">Комментарий</label>
+                    <textarea id="message" name="message" placeholder="Формат съемки, количество людей, пожелания по локациям..."></textarea>
+                  </div>
+                </div>
+                <div class="form-footer">
+                  <button class="btn-primary" type="submit">
+                    <span class="dot"></span>
+                    Отправить заявку
+                  </button>
+                  <div class="form-note">
+                    Отправляя заявку, вы соглашаетесь на обработку данных для связи по поводу фотосессии.
+                  </div>
+                </div>
+                <div class="form-status" id="form-status"></div>
+              </form>
+            </div>
+          </div>
+          <aside class="aside-card">
+            <div class="aside-card-inner">
+              <div class="aside-label">Формат связи</div>
+              <div class="aside-title">Напишу вам в мессенджер, который удобен именно вам</div>
+              <div class="aside-text">
+                После заявки вы получите сообщение в WhatsApp, Telegram или Instagram. Там обсудим детали, время, образы и финальную стоимость.
+              </div>
+              <div class="aside-badges">
+                <span class="aside-badge">Подбор локаций под ваши референсы</span>
+                <span class="aside-badge">Советы по одежде и макияжу</span>
+                <span class="aside-badge">Напоминание за день до съемки</span>
+              </div>
+              <div class="aside-meta">
+                Если у вас уже есть точная дата, укажите ее в комментарии. Это поможет быстрее зарезервировать время в графике.
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          Работаю по лицензии. Дубай, UAE. <br />
+          Премиальные фотосессии для пары, семьи, друзей и контента.
+        </div>
+        <div class="footer-socials">
+          <a class="social-pill" href="https://example.com" target="_blank" rel="noreferrer">
+            <span class="icon">IG</span>
+            Instagram
+          </a>
+          <a class="social-pill" href="https://example.com" target="_blank" rel="noreferrer">
+            <span class="icon">f</span>
+            Facebook
+          </a>
+          <a class="social-pill" href="https://example.com" target="_blank" rel="noreferrer">
+            <span class="icon">P</span>
+            Pinterest
+          </a>
+          <a class="social-pill" href="https://example.com" target="_blank" rel="noreferrer">
+            <span class="icon">WA</span>
+            WhatsApp
+          </a>
+          <a class="social-pill" href="https://example.com" target="_blank" rel="noreferrer">
+            <span class="icon">TG</span>
+            Telegram
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script>
+  // dataLayer init for GTM
+  window.dataLayer = window.dataLayer || [];
+
+  function smoothScrollTo(element) {
+    if (!element) return;
+    element.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  // Buttons scroll to sections
+  document.getElementById("hero-cta-btn")?.addEventListener("click", function () {
+    const formSection = document.getElementById("lead-form-section");
+    smoothScrollTo(formSection);
+  });
+
+  document.getElementById("header-cta-btn")?.addEventListener("click", function () {
+    const formSection = document.getElementById("lead-form-section");
+    smoothScrollTo(formSection);
+  });
+
+  document.getElementById("hero-packages-btn")?.addEventListener("click", function () {
+    const packagesSection = document.getElementById("packages");
+    smoothScrollTo(packagesSection);
+  });
+
+  // Package buttons -> scroll to form
+  document.querySelectorAll(".package-btn").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      const formSection = document.getElementById("lead-form-section");
+      smoothScrollTo(formSection);
+    });
+  });
+
+  // Telegram form submit
+  const leadForm = document.getElementById("lead-form");
+  const formStatus = document.getElementById("form-status");
+
+  if (leadForm) {
+    leadForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      formStatus.textContent = "";
+      formStatus.className = "form-status";
+
+      const name = document.getElementById("name")?.value.trim() || "";
+      const phone = document.getElementById("phone")?.value.trim() || "";
+      const social = document.getElementById("social")?.value.trim() || "";
+      const dates = document.getElementById("dates")?.value.trim() || "";
+      const message = document.getElementById("message")?.value.trim() || "";
+
+      if (!name || !phone) {
+        formStatus.textContent = "Пожалуйста, заполните имя и телефон.";
+        formStatus.classList.add("error");
+        return;
+      }
+
+      // Replace with your real token and chat id
+      const BOT_TOKEN = "BOT_TOKEN_HERE";
+      const CHAT_ID = "CHAT_ID_HERE";
+
+      const textLines = [
+        "Новая заявка с лендинга (фотосессия в Дубае):",
+        "",
+        "Имя: " + name,
+        "Телефон: " + phone,
+        "Соцсеть: " + (social || "-"),
+        "Даты в Дубае: " + (dates || "-"),
+        "Комментарий: " + (message || "-")
+      ];
+
+      const text = textLines.join("\n");
+      const url =
+        "https://api.telegram.org/bot" +
+        encodeURIComponent(BOT_TOKEN) +
+        "/sendMessage?chat_id=" +
+        encodeURIComponent(CHAT_ID) +
+        "&text=" +
+        encodeURIComponent(text);
+
+      formStatus.textContent = "Отправка...";
+      formStatus.classList.remove("error", "success");
+
+      fetch(url, {
+        method: "GET"
+      })
+        .then(function (response) {
+          if (!response.ok) {
+            throw new Error("Ошибка сети");
+          }
+          return response.json();
+        })
+        .then(function (data) {
+          if (!data || !data.ok) {
+            throw new Error("Ошибка Telegram API");
+          }
+
+          alert("Заявка отправлена");
+          formStatus.textContent = "Заявка успешно отправлена.";
+          formStatus.classList.add("success");
+          leadForm.reset();
+
+          // GTM event
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({ event: "form_submit" });
+        })
+        .catch(function () {
+          alert("Ошибка при отправке заявки. Попробуйте еще раз.");
+          formStatus.textContent = "Не удалось отправить заявку. Попробуйте еще раз.";
+          formStatus.classList.add("error");
+        });
+    });
+  }
+</script>
+</body>
+</html>
